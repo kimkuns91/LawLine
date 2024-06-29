@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  email           String      @unique
+  name            String 
+  profileImg      String      @default("/images/noUser.webp")
+  password        String
+  role            Role        @default(USER)
+  provider        String      @default("credentials")
+  createdAt       DateTime    @default(now())
+  emailVerified   DateTime?   @map("verifiedAt")
+  @@map("users")
+}
+model AIChatRoom {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String?      @map("userId")
+  characterId     String?      @map("characterId")
+  firstMessage    String?      @map("firstMessage")
+  title           String
+  createdAt       DateTime    @default(now())
+  @@map("aichatrooms")
+}
+
+model AIChatMessage {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  roomId          String      @map("roomId")
+  role            String
+  content         String      
+  createdAt       DateTime    @default(now())
+  @@map("aichatmessages")
+}
+
+model AIModel {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  description     String
+  model           String
+  prompt          String
+  greeting        String
+  profileImg      String      @default("/images/defaultProfile.png")
+  likes           Int         @default(0)
+  createdAt       DateTime    @default(now())
+  @@map("aimodels")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
