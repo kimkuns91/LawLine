@@ -51,6 +51,7 @@ const CharacterChatRoom: React.FC<CharacterChatRoomProps> = ({
         setLoading(false);
       }
     })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roomInfo.id]);
 
   useEffect(() => {
