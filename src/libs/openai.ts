@@ -6,9 +6,6 @@ import { openai } from '@ai-sdk/openai';
 import { createStreamableValue } from 'ai/rsc';
 import prisma from './prisma';
 
-export const maxDuration = 60; // This function can run for a maximum of 5 seconds
-export const dynamic = 'force-dynamic';
-
 function convertContentToString(content: any) {
   if (typeof content === 'string') {
     return content;
