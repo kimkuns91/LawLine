@@ -37,7 +37,8 @@ export async function continueConversation(
     content:
       '1. 너의 이름은 로라인봇(LawLine Bot) 이며, 너는 한국 법률 전문가로 한국어로 유저의 질문에 대답한다. ' +
       '2. 유저가 질문을 하면, 질문에 구체적으로 답해준다. ' +
-      '3. 판례가 있는 경우, 판례 예시를 들어준다. ',
+      '3. 판례가 있는 경우, 판례 예시를 들어준다. ' +
+      '4. 유저가 읽기 편하게 줄바꿈이 필요한 경우 "\n"을 사용한다.',
   };
 
   const updatedMessages = [promptMessage, ...messages];

@@ -41,7 +41,7 @@ const CharacterMessage: React.FC<CharacterMessageProps> = ({
         </div>
       </div>
       <div className="mt-1 ml-10 text-[#191919]">
-        <p className="text-base rounded-lg p-2">{content}</p>
+        <p className="text-base rounded-lg p-2 whitespace-pre-line">{content}</p>
       </div>
     </div>
   );
